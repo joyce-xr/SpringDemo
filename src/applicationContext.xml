@@ -4,7 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userDao" class="sprinDemo1.UserDaoMysqlImpl">
-           <property name="name" value="hahah"/>
+    <bean id="userDao" class="sprinDemo.demo1.UserDaoMysqlImpl" init-method="init" destroy-method="destory">
+        <property name="name" value="hahah"/>
+    </bean>
+
+    <bean id="person" class="sprinDemo.demo2.Person"
+          init-method="init"
+          destroy-method="destory"
+          scope="prototype">
+        <property name="name" value="zhangsan"/>
+    </bean>
+
+    <bean id="user" class="sprinDemo.demo3.User" factory-method="createUser" scope="prototype">
+
     </bean>
 </beans>

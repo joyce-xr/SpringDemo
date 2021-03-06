@@ -1,4 +1,4 @@
-package sprinDemo1;
+package sprinDemo.demo1;
 
 public class UserDaoMysqlImpl implements UserDao {
 
@@ -17,5 +17,13 @@ public class UserDaoMysqlImpl implements UserDao {
     @Override
     public void delete() {
         System.out.println("mysql dao delete");
+    }
+
+    public void init(){
+        System.out.println("UserDaoMysqlImpl----init");
+    }
+
+    public void destory(){
+        System.out.println("UserDaoMysqlImpl-----destory");
     }
 }
