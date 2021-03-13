@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="dog" class="sprinDemo.demo4.Dog" p:name="wangcai" p:age="3" p:color="red">
+<!--        <property name="name" value="wagncai"/>-->
+    </bean>
+
+    <bean name="dog2" class="sprinDemo.demo4.Dog">
+        <property name="name" value="#{'wangcai2'}"/>
+        <property name="age" value="4"/>
+        <property name="color" value="#{'red2'}"/>
+    </bean>
+
+    <bean id="student" class="sprinDemo.demo4.Student" >
+<!--        <property name="name" value="zhangsan"/>-->
+<!--        <property name="age" value="13"/>-->
+        <constructor-arg name="name" value="lisi"/>
+        <constructor-arg name="age" value="18"/>
+<!--        <property name="dog" ref="dog"/>&lt;!&ndash;此处ref为要因为的beanid&ndash;&gt;-->
+        <property name="dog" value="#{dog2}"/>
+        <property name="dogName" value="#{dog2.name}"/>
+
+        <!--数组-->
+        <property name="attr">
+            <list>
+                <value>123</value>
+                <value>456</value>
+            </list>
+        </property>
+
+        <!--List-->
+        <property name="myList">
+            <list>
+                <value>abc</value>
+                <value>def</value>
+            </list>
+        </property>
+
+        <!--Set-->
+        <property name="mySet">
+            <set>
+                <value>000</value>
+                <value>111</value>
+            </set>
+        </property>
+
+        <!--Map-->
+        <property name="myMap">
+            <map>
+                <entry key="key1" value="value1"/>
+                <entry key="key2" value="value2"/>
+                <entry key="key3" value="value3"/>
+            </map>
+        </property>
+    </bean>
+</beans>

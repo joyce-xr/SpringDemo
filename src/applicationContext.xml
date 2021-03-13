@@ -18,4 +18,6 @@
     <bean id="user" class="sprinDemo.demo3.User" factory-method="createUser" scope="prototype">
 
     </bean>
+
+    <import resource="applicationContext2.xml"/>
 </beans>
